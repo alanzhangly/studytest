@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc" 
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="
+        http://www.springframework.org/schema/beans 
+        http://www.springframework.org/schema/beans/spring-beans-4.3.xsd 
+        http://www.springframework.org/schema/context 
+        http://www.springframework.org/schema/context/spring-context-4.3.xsd 
+        http://www.springframework.org/schema/mvc 
+        http://www.springframework.org/schema/mvc/spring-mvc-4.3.xsd 
+        http://www.springframework.org/schema/tx 
+        http://www.springframework.org/schema/tx/spring-tx-4.3.xsd ">
+
+	<!--<mvc:default-servlet-handler />-->
+
+	<!--<mvc:annotation-driven />-->
+
+	<!-- 自动扫描注解 -->
+	<!--<context:component-scan base-package="com.alan.web.controller" use-default-filters="false">-->
+		<!--<context:include-filter type="annotation" expression="org.springframework.stereotype.Controller" />-->
+	<!--</context:component-scan>-->
+
+	<!-- 自动扫描注解 -->
+	<!--<context:component-scan base-package="hl.backstage.business.controller" use-default-filters="false">-->
+		<!--<context:include-filter type="annotation" expression="org.springframework.stereotype.Controller" />-->
+	<!--</context:component-scan>-->
+
+	<!-- 视图层配置 -->
+	<!--<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">-->
+		<!--<property name="prefix" value="/WEB-INF/jsp/" />-->
+		<!--<property name="suffix" value=".jsp" />-->
+	<!--</bean>-->
+	
+	<!-- MappingJackson转换器 -->
+	<!--<bean class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">-->
+		<!--<property name="supportedMediaTypes">-->
+			<!--<list>-->
+				<!--<value>text/html;charset=UTF-8</value>-->
+				<!--<value>application/json;charset=UTF-8</value>-->
+			<!--</list>-->
+		<!--</property>-->
+	<!--</bean>-->
+
+	<!-- String转换器 -->
+	<!--<bean class="org.springframework.http.converter.StringHttpMessageConverter">-->
+		<!--<property name="supportedMediaTypes">-->
+			<!--<list>-->
+				<!--<value>text/html;charset=UTF-8</value>-->
+				<!--<value>application/json;charset=UTF-8</value>-->
+			<!--</list>-->
+		<!--</property>-->
+	<!--</bean>-->
+
+	<!--<bean id="multipartResolver"-->
+		<!--class="org.springframework.web.multipart.commons.CommonsMultipartResolver">-->
+		<!--<property name="defaultEncoding">-->
+			<!--<value>UTF-8</value>-->
+		<!--</property>-->
+		<!--<property name="maxUploadSize">-->
+			<!--<value>325058560</value>&lt;!&ndash; 上传文件大小限制为310M，310*1024*1024 &ndash;&gt;-->
+		<!--</property>-->
+		<!--<property name="maxInMemorySize">-->
+			<!--<value>104857600</value>&lt;!&ndash; 内存文件大小限制为100M，100*1024*1024 &ndash;&gt;-->
+		<!--</property>-->
+	<!--</bean>-->
+	
+	<!-- 使用默认的Servlet来响应静态文件 -->
+	<!--<mvc:default-servlet-handler/>-->
+	<!---->
+	<!--<mvc:view-controller path="/500.html" view-name="500" />-->
+	<!--<mvc:view-controller path="/404.html" view-name="404" />-->
+
+	<!-- 全局的异常处理 -->
+	<!--<bean class="hl.backstage.web.ExceptionResolver" />-->
+	
+	<!--<mvc:interceptors>-->
+		<!--&lt;!&ndash; 使用bean定义一个Interceptor，直接定义在mvc:interceptors根下面的Interceptor将拦截所有的请求 &ndash;&gt;-->
+		<!--<mvc:interceptor>-->
+			<!--<mvc:mapping path="/**" />-->
+			<!--<mvc:exclude-mapping path="/assets/**" />-->
+			<!--<mvc:exclude-mapping path="/js/**" />-->
+			<!--&lt;!&ndash; 定义在mvc:interceptor下面的表示是对特定的请求才进行拦截的 &ndash;&gt;-->
+			<!--<bean class="hl.backstage.web.interceptor.FirstInterceptor" />-->
+		<!--</mvc:interceptor>-->
+		<!--<mvc:interceptor>-->
+			<!--<mvc:mapping path="/**" />-->
+			<!--<mvc:exclude-mapping path="/assets/**" />-->
+			<!--<mvc:exclude-mapping path="/js/**" />-->
+			<!--<mvc:exclude-mapping path="/login.html" />-->
+			<!--<mvc:exclude-mapping path="/login.json" />-->
+			<!--&lt;!&ndash; 定义在mvc:interceptor下面的表示是对特定的请求才进行拦截的 &ndash;&gt;-->
+			<!--<bean class="hl.backstage.web.interceptor.LoginInterceptor" />-->
+		<!--</mvc:interceptor>-->
+		<!--<mvc:interceptor>-->
+			<!--<mvc:mapping path="/**" />-->
+			<!--<mvc:exclude-mapping path="/assets/**" />-->
+			<!--<mvc:exclude-mapping path="/js/**" />-->
+			<!--<mvc:exclude-mapping path="/login.html" />-->
+			<!--<mvc:exclude-mapping path="/login.json" />-->
+			<!--<mvc:exclude-mapping path="/modifyPassword.html" />-->
+			<!--<mvc:exclude-mapping path="/modifyPassword.json" />-->
+			<!--&lt;!&ndash; 定义在mvc:interceptor下面的表示是对特定的请求才进行拦截的 &ndash;&gt;-->
+			<!--<bean class="hl.backstage.web.interceptor.ModifyPasswordInterceptor" />-->
+		<!--</mvc:interceptor>-->
+		<!--<mvc:interceptor>-->
+			<!--<mvc:mapping path="/**" />-->
+			<!--<mvc:exclude-mapping path="/assets/**" />-->
+			<!--<mvc:exclude-mapping path="/js/**" />-->
+			<!--<mvc:exclude-mapping path="/login.html" />-->
+			<!--<mvc:exclude-mapping path="/login.json" />-->
+			<!--<mvc:exclude-mapping path="/modifyPassword.html" />-->
+			<!--<mvc:exclude-mapping path="/modifyPassword.json" />-->
+			<!--&lt;!&ndash; 定义在mvc:interceptor下面的表示是对特定的请求才进行拦截的 &ndash;&gt;-->
+			<!--<bean class="hl.backstage.web.interceptor.PermissionInterceptor" />-->
+		<!--</mvc:interceptor>-->
+	<!--</mvc:interceptors>-->
+</beans>  

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="Backmanager" />
+        <module name="board" />
+        <module name="db-utils" />
+        <module name="mybatis" />
+        <module name="mybatisplus" />
+        <module name="NIOClient" />
+        <module name="NIOServer" />
+        <module name="quartz" />
+        <module name="webcrawler" />
+        <module name="WebTransfer" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel target="1.7">
+      <module name="Backmanager" target="1.7" />
+      <module name="board" target="1.7" />
+      <module name="db-utils" target="1.7" />
+      <module name="mybatis" target="1.7" />
+      <module name="mybatisplus" target="1.7" />
+      <module name="NIOClient" target="1.7" />
+      <module name="NIOServer" target="1.7" />
+      <module name="quartz" target="1.7" />
+      <module name="studytest" target="1.7" />
+      <module name="webcrawler" target="1.7" />
+      <module name="WebTransfer" target="1.7" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

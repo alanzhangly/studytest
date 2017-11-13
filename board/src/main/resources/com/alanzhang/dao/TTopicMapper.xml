@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.alanzhang.dao.TTopicMapper">
+  <resultMap id="BaseResultMap" type="com.alanzhang.domain.TTopic">
+    <id column="topic_id" jdbcType="VARCHAR" property="topicId" />
+    <result column="board_id" jdbcType="VARCHAR" property="boardId" />
+    <result column="topic_title" jdbcType="VARCHAR" property="topicTitle" />
+    <result column="user_id" jdbcType="VARCHAR" property="userId" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="last_post" jdbcType="TIMESTAMP" property="lastPost" />
+    <result column="topic_views" jdbcType="INTEGER" property="topicViews" />
+    <result column="topic_replies" jdbcType="INTEGER" property="topicReplies" />
+    <result column="digest" jdbcType="INTEGER" property="digest" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    topic_id, board_id, topic_title, user_id, create_time, last_post, topic_views, topic_replies, 
+    digest
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from t_topic
+    where topic_id = #{topicId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from t_topic
+    where topic_id = #{topicId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.alanzhang.domain.TTopic">
+    <selectKey keyProperty="topicId" order="AFTER" resultType="java.lang.String">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into t_topic (board_id, topic_title, user_id, 
+      create_time, last_post, topic_views, 
+      topic_replies, digest)
+    values (#{boardId,jdbcType=VARCHAR}, #{topicTitle,jdbcType=VARCHAR}, #{userId,jdbcType=VARCHAR}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{lastPost,jdbcType=TIMESTAMP}, #{topicViews,jdbcType=INTEGER}, 
+      #{topicReplies,jdbcType=INTEGER}, #{digest,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.alanzhang.domain.TTopic">
+    <selectKey keyProperty="topicId" order="AFTER" resultType="java.lang.String">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into t_topic
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="boardId != null">
+        board_id,
+      </if>
+      <if test="topicTitle != null">
+        topic_title,
+      </if>
+      <if test="userId != null">
+        user_id,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="lastPost != null">
+        last_post,
+      </if>
+      <if test="topicViews != null">
+        topic_views,
+      </if>
+      <if test="topicReplies != null">
+        topic_replies,
+      </if>
+      <if test="digest != null">
+        digest,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="boardId != null">
+        #{boardId,jdbcType=VARCHAR},
+      </if>
+      <if test="topicTitle != null">
+        #{topicTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="userId != null">
+        #{userId,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lastPost != null">
+        #{lastPost,jdbcType=TIMESTAMP},
+      </if>
+      <if test="topicViews != null">
+        #{topicViews,jdbcType=INTEGER},
+      </if>
+      <if test="topicReplies != null">
+        #{topicReplies,jdbcType=INTEGER},
+      </if>
+      <if test="digest != null">
+        #{digest,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.alanzhang.domain.TTopic">
+    update t_topic
+    <set>
+      <if test="boardId != null">
+        board_id = #{boardId,jdbcType=VARCHAR},
+      </if>
+      <if test="topicTitle != null">
+        topic_title = #{topicTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="userId != null">
+        user_id = #{userId,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lastPost != null">
+        last_post = #{lastPost,jdbcType=TIMESTAMP},
+      </if>
+      <if test="topicViews != null">
+        topic_views = #{topicViews,jdbcType=INTEGER},
+      </if>
+      <if test="topicReplies != null">
+        topic_replies = #{topicReplies,jdbcType=INTEGER},
+      </if>
+      <if test="digest != null">
+        digest = #{digest,jdbcType=INTEGER},
+      </if>
+    </set>
+    where topic_id = #{topicId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.alanzhang.domain.TTopic">
+    update t_topic
+    set board_id = #{boardId,jdbcType=VARCHAR},
+      topic_title = #{topicTitle,jdbcType=VARCHAR},
+      user_id = #{userId,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      last_post = #{lastPost,jdbcType=TIMESTAMP},
+      topic_views = #{topicViews,jdbcType=INTEGER},
+      topic_replies = #{topicReplies,jdbcType=INTEGER},
+      digest = #{digest,jdbcType=INTEGER}
+    where topic_id = #{topicId,jdbcType=VARCHAR}
+  </update>
+</mapper>

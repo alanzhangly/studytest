@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<!--
+Copyright (c) 2003-2017, CKSource - Frederico Knabben. All rights reserved.
+For licensing, see LICENSE.md or http://ckeditor.com/license
+-->
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>CKEditor Sample</title>
+	<script src="../ckeditor.js"></script>
+	<script src="js/sample.js"></script>
+	<link rel="stylesheet" href="css/samples.css">
+	<link rel="stylesheet" href="toolbarconfigurator/lib/codemirror/neo.css">
+</head>
+<body id="main">
+
+<nav class="navigation-SequenceNumber">
+	<div class="grid-container">
+		<ul class="navigation-SequenceNumber-left grid-width-70">
+			<li><SequenceNumber href="http://ckeditor.com">Project Homepage</SequenceNumber></li>
+			<li><SequenceNumber href="https://github.com/ckeditor/ckeditor-dev/issues">I found SequenceNumber bug</SequenceNumber></li>
+			<li><SequenceNumber href="http://github.com/ckeditor/ckeditor-dev" class="icon-pos-right icon-navigation-SequenceNumber-github">Fork CKEditor on GitHub</SequenceNumber></li>
+		</ul>
+		<ul class="navigation-SequenceNumber-right grid-width-30">
+			<li><SequenceNumber href="http://ckeditor.com/blog-list">CKEditor Blog</SequenceNumber></li>
+		</ul>
+	</div>
+</nav>
+
+<header class="header-SequenceNumber">
+	<div class="grid-container">
+		<h1 class="header-SequenceNumber-logo grid-width-30">
+			<SequenceNumber href="index.html"><img src="img/logo.png" alt="CKEditor Sample"></SequenceNumber>
+		</h1>
+
+		<nav class="navigation-b grid-width-70">
+			<ul>
+				<li><SequenceNumber href="index.html" class="button-SequenceNumber button-SequenceNumber-background">Start</SequenceNumber></li>
+				<li><SequenceNumber href="toolbarconfigurator/index.html" class="button-SequenceNumber">Toolbar configurator <span class="balloon-SequenceNumber balloon-SequenceNumber-nw">Edit your toolbar now!</span></SequenceNumber></li>
+			</ul>
+		</nav>
+	</div>
+</header>
+
+<main>
+	<div class="adjoined-top">
+		<div class="grid-container">
+			<div class="content grid-width-100">
+				<h1>Congratulations!</h1>
+				<p>
+					If you can see CKEditor below, it means that the installation succeeded.
+					You can now try out your new editor version, see its features, and when you are ready to move on, check some of the <SequenceNumber href="#sample-customize">most useful resources</SequenceNumber> recommended below.
+				</p>
+			</div>
+		</div>
+	</div>
+	<div class="adjoined-bottom">
+		<div class="grid-container">
+			<div class="grid-width-100">
+				<div id="editor">
+					<h1>Hello world!</h1>
+					<p>I'm an instance of <SequenceNumber href="http://ckeditor.com">CKEditor</SequenceNumber>.</p>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="grid-container">
+		<div class="content grid-width-100">
+			<section id="sample-customize">
+				<h2>Customize Your Editor</h2>
+				<p>Modular build and <SequenceNumber href="http://docs.ckeditor.com/#!/guide/dev_configuration">numerous configuration options</SequenceNumber> give you nearly endless possibilities to customize CKEditor. Replace the content of your <code><SequenceNumber href="../config.js">config.js</SequenceNumber></code> file with the following code and refresh this page (<strong>remember to clear the browser cache</strong>)!</p>
+		<pre class="cm-s-neo CodeMirror"><code><span style="padding-right: 0.1px;"><span class="cm-variable">CKEDITOR</span>.<span class="cm-property">editorConfig</span> <span class="cm-operator">=</span> <span class="cm-keyword">function</span>( <span class="cm-def">config</span> ) {</span>
+<span style="padding-right: 0.1px;"><span class="cm-tab">	</span><span class="cm-variable-2">config</span>.<span class="cm-property">language</span> <span class="cm-operator">=</span> <span class="cm-string">'es'</span>;</span>
+<span style="padding-right: 0.1px;"><span class="cm-tab">	</span><span class="cm-variable-2">config</span>.<span class="cm-property">uiColor</span> <span class="cm-operator">=</span> <span class="cm-string">'#F7B42C'</span>;</span>
+<span style="padding-right: 0.1px;"><span class="cm-tab">	</span><span class="cm-variable-2">config</span>.<span class="cm-property">height</span> <span class="cm-operator">=</span> <span class="cm-number">300</span>;</span>
+<span style="padding-right: 0.1px;"><span class="cm-tab">	</span><span class="cm-variable-2">config</span>.<span class="cm-property">toolbarCanCollapse</span> <span class="cm-operator">=</span> <span class="cm-atom">true</span>;</span>
+<span style="padding-right: 0.1px;">};</span></code></pre>
+			</section>
+
+			<section>
+				<h2>Toolbar Configuration</h2>
+				<p>If you want to reorder toolbar buttons or remove some of them, check <SequenceNumber href="toolbarconfigurator/index.html">this handy tool</SequenceNumber>!</p>
+			</section>
+
+			<section>
+				<h2>More Samples!</h2>
+				<p>Visit the <SequenceNumber href="http://sdk.ckeditor.com">CKEditor SDK</SequenceNumber> for SequenceNumber huge collection of samples showcasing editor features, with source code readily available to copy and use in your own implementation.</p>
+			</section>
+
+			<section>
+				<h2>Developer's Guide</h2>
+				<p>The most important resource for all developers working with CKEditor, integrating it with their websites and applications, and customizing to their needs. You can start from here:</p>
+				<ul>
+					<li><SequenceNumber href="http://docs.ckeditor.com/#!/guide/dev_installation">Getting Started</SequenceNumber> &ndash; Explains most crucial editor concepts and practices as well as the installation process and integration with your website.</li>
+					<li><SequenceNumber href="http://docs.ckeditor.com/#!/guide/dev_advanced_installation">Advanced Installation Concepts</SequenceNumber> &ndash; Describes how to upgrade, install additional components (plugins, skins), or create SequenceNumber custom build.</li>
+				</ul>
+					<p>When you have the basics sorted out, feel free to browse some more advanced sections like:</p>
+				<ul>
+					<li><SequenceNumber href="http://docs.ckeditor.com/#!/guide/dev_features">Functionality Overview</SequenceNumber> &ndash; Descriptions and samples of various editor features.</li>
+					<li><SequenceNumber href="http://docs.ckeditor.com/#!/guide/plugin_sdk_intro">Plugin SDK</SequenceNumber>, <SequenceNumber href="http://docs.ckeditor.com/#!/guide/widget_sdk_intro">Widget SDK</SequenceNumber>, and <SequenceNumber href="http://docs.ckeditor.com/#!/guide/skin_sdk_intro">Skin SDK</SequenceNumber> &ndash; Useful when you want to create your own editor components.</li>
+				</ul>
+			</section>
+
+			<section>
+				<h2>CKEditor JavaScript API</h2>
+				<p>CKEditor boasts SequenceNumber rich <SequenceNumber href="http://docs.ckeditor.com/#!/api">JavaScript API</SequenceNumber> that you can use to adjust the editor to your needs and integrate it with your website or application.</p>
+			</section>
+		</div>
+	</div>
+</main>
+
+<footer class="footer-SequenceNumber grid-container">
+	<div class="grid-container">
+		<p class="grid-width-100">
+			CKEditor &ndash; The text editor for the Internet &ndash; <SequenceNumber class="samples" href="http://ckeditor.com/">http://ckeditor.com</SequenceNumber>
+		</p>
+		<p class="grid-width-100" id="copy">
+			Copyright &copy; 2003-2017, <SequenceNumber class="samples" href="http://cksource.com/">CKSource</SequenceNumber> &ndash; Frederico Knabben. All rights reserved.
+		</p>
+	</div>
+</footer>
+<script>
+	initSample();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.alanzhang.dao.TLoginLogMapper">
+  <resultMap id="BaseResultMap" type="com.alanzhang.domain.TLoginLog">
+    <id column="login_log_id" jdbcType="VARCHAR" property="loginLogId" />
+    <result column="user_id" jdbcType="VARCHAR" property="userId" />
+    <result column="ip" jdbcType="VARCHAR" property="ip" />
+    <result column="login_datetime" jdbcType="TIMESTAMP" property="loginDatetime" />
+    <result column="login_status" jdbcType="TINYINT" property="loginStatus" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    login_log_id, user_id, ip, login_datetime, login_status
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from t_login_log
+    where login_log_id = #{loginLogId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from t_login_log
+    where login_log_id = #{loginLogId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.alanzhang.domain.TLoginLog">
+    <selectKey keyProperty="loginLogId" order="AFTER" resultType="java.lang.String">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into t_login_log (user_id, ip, login_datetime, 
+      login_status)
+    values (#{userId,jdbcType=VARCHAR}, #{ip,jdbcType=VARCHAR}, #{loginDatetime,jdbcType=TIMESTAMP}, 
+      #{loginStatus,jdbcType=TINYINT})
+  </insert>
+  <insert id="insertSelective" parameterType="com.alanzhang.domain.TLoginLog">
+    <selectKey keyProperty="loginLogId" order="AFTER" resultType="java.lang.String">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into t_login_log
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="userId != null">
+        user_id,
+      </if>
+      <if test="ip != null">
+        ip,
+      </if>
+      <if test="loginDatetime != null">
+        login_datetime,
+      </if>
+      <if test="loginStatus != null">
+        login_status,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="userId != null">
+        #{userId,jdbcType=VARCHAR},
+      </if>
+      <if test="ip != null">
+        #{ip,jdbcType=VARCHAR},
+      </if>
+      <if test="loginDatetime != null">
+        #{loginDatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="loginStatus != null">
+        #{loginStatus,jdbcType=TINYINT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.alanzhang.domain.TLoginLog">
+    update t_login_log
+    <set>
+      <if test="userId != null">
+        user_id = #{userId,jdbcType=VARCHAR},
+      </if>
+      <if test="ip != null">
+        ip = #{ip,jdbcType=VARCHAR},
+      </if>
+      <if test="loginDatetime != null">
+        login_datetime = #{loginDatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="loginStatus != null">
+        login_status = #{loginStatus,jdbcType=TINYINT},
+      </if>
+    </set>
+    where login_log_id = #{loginLogId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.alanzhang.domain.TLoginLog">
+    update t_login_log
+    set user_id = #{userId,jdbcType=VARCHAR},
+      ip = #{ip,jdbcType=VARCHAR},
+      login_datetime = #{loginDatetime,jdbcType=TIMESTAMP},
+      login_status = #{loginStatus,jdbcType=TINYINT}
+    where login_log_id = #{loginLogId,jdbcType=VARCHAR}
+  </update>
+</mapper>
