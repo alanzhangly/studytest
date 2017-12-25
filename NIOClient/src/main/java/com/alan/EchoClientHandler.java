@@ -26,6 +26,12 @@ public class EchoClientHandler extends
         "Client received: " + in.toString(CharsetUtil.UTF_8));
     }
 
+    @Override
+    public void channelReadComplete(ChannelHandlerContext ctx) throws Exception {
+//        super.channelReadComplete(ctx);
+        ctx.disconnect();
+    }
+
     //在处理过程中引发异常时被调用
     @Override
     public void exceptionCaught(ChannelHandlerContext ctx,     //⇽---  在发生异常时，记录错误并关闭Channel

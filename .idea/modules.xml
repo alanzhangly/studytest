@@ -6,8 +6,11 @@
       <module fileurl="file://$PROJECT_DIR$/NIOClient/NIOClient.iml" filepath="$PROJECT_DIR$/NIOClient/NIOClient.iml" />
       <module fileurl="file://$PROJECT_DIR$/NIOServer/NIOServer.iml" filepath="$PROJECT_DIR$/NIOServer/NIOServer.iml" />
       <module fileurl="file://$PROJECT_DIR$/WebTransfer/WebTransfer.iml" filepath="$PROJECT_DIR$/WebTransfer/WebTransfer.iml" />
+      <module fileurl="file://$PROJECT_DIR$/activemq/activemq.iml" filepath="$PROJECT_DIR$/activemq/activemq.iml" />
+      <module fileurl="file://$PROJECT_DIR$/activemq_springboot/activemq_springboot.iml" filepath="$PROJECT_DIR$/activemq_springboot/activemq_springboot.iml" />
       <module fileurl="file://$PROJECT_DIR$/board/board.iml" filepath="$PROJECT_DIR$/board/board.iml" />
       <module fileurl="file://$PROJECT_DIR$/db-utils/db-utils.iml" filepath="$PROJECT_DIR$/db-utils/db-utils.iml" />
+      <module fileurl="file://$PROJECT_DIR$/eureka/eureka.iml" filepath="$PROJECT_DIR$/eureka/eureka.iml" />
       <module fileurl="file://$PROJECT_DIR$/mybatis/mybatis.iml" filepath="$PROJECT_DIR$/mybatis/mybatis.iml" />
       <module fileurl="file://$PROJECT_DIR$/mybatisplus/mybatisplus.iml" filepath="$PROJECT_DIR$/mybatisplus/mybatisplus.iml" />
       <module fileurl="file://$PROJECT_DIR$/quartz/quartz.iml" filepath="$PROJECT_DIR$/quartz/quartz.iml" />

@@ -22,12 +22,13 @@ public class EchoServer {
     }
 
     public static void main(String[] args) throws Exception {
-        if (args.length != 1) {
-            System.err.println(
-                    "Usage: " + EchoServer.class.getSimpleName() +
-                            " ");
-        }
-        int port = Integer.parseInt(args[0]); //⇽---　设置端口值（如果端口参数的格式不正确，则抛出一个NumberFormatException）
+//        if (args.length != 1) {
+//            System.err.println(
+//                    "Usage: " + EchoServer.class.getSimpleName() +
+//                            " ");
+//        }
+//        int port = Integer.parseInt(args[0]); //⇽---　设置端口值（如果端口参数的格式不正确，则抛出一个NumberFormatException）
+        int port = 9060;
         new EchoServer(port).start();    //⇽---  调用服务器的start()方法
     }
     public void start() throws Exception {
