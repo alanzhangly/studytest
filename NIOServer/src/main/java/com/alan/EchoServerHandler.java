@@ -17,17 +17,18 @@ public class EchoServerHandler extends ChannelInboundHandlerAdapter {
 
     @Override
     public void channelRead(ChannelHandlerContext ctx, Object msg) {
+        System.out.print("服务器收到消息：");
         ByteBuf in = (ByteBuf) msg;
-        System.out.println(
-                "Server received: " + in.toString(CharsetUtil.UTF_8));    // ⇽---  将消息记录到控制台
-
-        ctx.write(in); //⇽---　将接收到的消息写给发送者，而不冲刷出站消息
+//        System.out.println(
+//                "Server received: " + in.toString(CharsetUtil.UTF_8));    // ⇽---  将消息记录到控制台
+        System.out.println(in.readableBytes());
+//        ctx.write(in); //⇽---　将接收到的消息写给发送者，而不冲刷出站消息
 
     }
 
     @Override
     public void channelReadComplete(ChannelHandlerContext ctx) {
-        ctx.writeAndFlush(Unpooled.EMPTY_BUFFER);
+//        ctx.writeAndFlush(Unpooled.EMPTY_BUFFER);
 //                .addListener(ChannelFutureListener.CLOSE); //⇽---　将未决消息冲刷到远程节点，并且关闭该Channel
     }
 

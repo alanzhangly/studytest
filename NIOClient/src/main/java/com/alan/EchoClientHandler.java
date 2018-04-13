@@ -1,5 +1,8 @@
 package com.alan;
 
+import com.alan.tcp.face.CommonManager;
+import com.alan.tcp.face.RequestModel;
+import com.alibaba.fastjson.JSON;
 import io.netty.buffer.ByteBuf;
 import io.netty.buffer.Unpooled;
 import io.netty.channel.ChannelHandler;
@@ -7,9 +10,13 @@ import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;
 import io.netty.util.CharsetUtil;
 
+import java.awt.image.BufferedImage;
+
 @ChannelHandler.Sharable     //⇽---  标记该类的实例可以被多个Channel共享
 public class EchoClientHandler extends
         SimpleChannelInboundHandler<ByteBuf> {
+
+
 
     //在到服务器的连接已经建立之后将被调用
     @Override
@@ -38,5 +45,11 @@ public class EchoClientHandler extends
             Throwable cause) {
         cause.printStackTrace();
         ctx.close();
+    }
+
+    public static void main(String[] args){
+        RequestModel model = new RequestModel();
+        model.setCommand(CommonManager.PIC_BEGIN);
+        System.out.println(JSON.toJSONString(model));
     }
 }
